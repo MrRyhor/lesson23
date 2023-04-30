@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task nr. String</title>
+    <link rel="stylesheet" href="css/styleString.css" type="text/css">
+</head>
+
+<body>
+    <div class="title">
+        <h1>Task nr. String</h1>
+        <p>String. Усі задачі можете оформити у одному файлі (так, як ми робимо на лекції)
+        </p>
+    </div>
+    <div id="res1" class="res"></div>
+    <div id="res2" class="res"></div>
+    <div id="res3" class="res"></div>
+    <div id="res4" class="res"></div>
+    <div id="res5" class="res"></div>
+    <div id="res6" class="res"></div>
+    <div id="res7" class="res"></div>
+    <div id="res8" class="res"></div>
+    <div id="res9" class="res"></div>
+    <div id="res10" class="res"></div>
+    <div id="res11" class="res"></div>
+    <div id="res12" class="res"></div>
+    <div id="res13" class="res"></div>
+    <div id="res14" class="res"></div>
+    <div id="res15" class="res"></div>
+    <div id="res16" class="res"></div>
+    <div id="res17" class="res"></div>
+
+    <script>
+        // Задача 1. Дано масив рядків.Вивести ті, у яких є цифри(використати метод test та регулярні вирази).
+        const stringList = ['My name is Rock. I am 43 years old', '16 miles away from home', 'There is no way to resolve this issue nr. 3', 'From the past till now fear is for real', 'Let freedom ring with the shootgun blessed']
+        const arr1 = stringList.filter(str => /\d/g.test(str))
+        res1.innerText = `Task nr1.\n ${arr1}`
+
+        // Задача 2. Дано масив рядків.Вивести ті, у яких немає цифр.
+        const arr2 = stringList.filter(str => /\d/g.test(str) === false)
+        res2.innerText = `\nTask nr2.\n ${arr2}`
+
+        // Задача 3. Дано масив рядків.Вивести ті, у яких є голосні літери.
+        const stringList2 = ['66 miles away from home', 'Drgtpd bnm crdw', 'Let freedom ring with the shootgun blessed', 'Www trpw qstrv klmnp ']
+        const arr3 = stringList2.filter(str => /[aeiouy]/g.test(str))
+        res3.innerText = `\nTask nr3.\n ${arr3}`
+
+        // Задача 4. Дано масив рядків.Вивести ті, у яких немає голосних літер.
+        const arr4 = stringList2.filter(str => /[aeiouy]/g.test(str) === false)
+        res4.innerText = `\nTask nr4.\n ${arr4}`
+
+        // Задача 5. Дано масив рядків.Вивести ті, у яких є або цифра 1 або цифра 3.
+        const arr5 = stringList.filter(str => /(1 | 3)/g.test(str))
+        res5.innerText = `\nTask nr5.\n ${arr5}`
+
+        // Задача 6. Дано рядок тексту, вивести усі числа, які є у тексті.
+        const str = 'This house named "Hole" of 105 ghosts, 13 zombies, 46:vampires, and 1 -rabbit.'
+        const result = str.match(/\d/g)
+        res6.innerText = `\nTask nr6.\n ${result}`
+
+        // Задача 7. Дано рядок тексту.Знайти усі знаки пунктуації, які були використано.
+        const result2 = str.match(/[^\w\s]/g)
+        res7.innerText = `\nTask nr7.\n ${result2}`
+
+        // Задача 8. Дано рядок тексту.Вивести усі складові, які розділені розділовими знаками.
+        const result3 = str.match(/[^\w\s]\w*[^\w\s]/g)
+        res8.innerText = `\nTask nr8.\n ${result3}`
+
+        // Задача 9. Дано рядок тексту.Перевірити, чи містить він дату у форматі dd.mm.yyyy(dd - день, mm - місяць, yyyy - рік).
+        const str2 = 'In 09.08.1994 "Machine Head" realized the greatest album in their carier'
+        let result4
+        if (/\D\d{2}.\d{2}.\d{4}\D/g.test(str2)) {
+            result4 = str2.match(/\D\d{2}.\d{2}.\d{4}\D/g)
+            res9.innerText = `\nTask nr9.\n ${result4}`
+        } else res9.innerText = `\nTask nr9.\n No such date in this string`
+
+        // Задача 10. Дано рядок тексту.Підрахувати кількість двоцифрових чисел у рядку.
+        const result5 = str.match(/\D\d{2}\D/g).length
+        res10.innerText = `\nTask nr10.\n ${result5}`
+
+        // Задача 11. Визначити чи може бути рядок тексту номером банківської картки(приклад: «4142 - 3433 - 2323 - 3434»).Знайти усі такі номери.
+        const str3 = 'While testing, use only this credit card numbers 4142-3433-2323-3434. Other numbers such this 4142-3433-1313-6666 produce an error.'
+        const result6 = str3.match(/\D\d{4}-\d{4}-\d{4}-\d{4}\D/g)
+        res11.innerText = `\nTask nr11.\n ${result6}`
+
+        // Задача 12. Дано адресу сайту.Визначити, чи є він урядовим(містить домен “gov”)
+        let link = prompt('Введите адрес сайта (пример: yahoo.com)')
+        if (link.includes('.gov.')) res12.innerText = `\nTask nr12.\n 'Сайт является государственным'`
+        else res12.innerText = `\nTask nr12.\n 'Сайт не является государственным'`
+
+        // Задача 13. Вибрати усі роки після 2021 року з отриманого повідомлення
+        const str4 = 'Back in late 2020 or early 2021 I started thinking about programming. At the end of 2022 I started learning HTML and CSS from youtube lessons. At the beginning of 2023 I decided to take a course on JS from Pan Andrei. In 2024 I plan to find a project where my knowledge will be useful.'
+        const result7 = str4.match(/\D\d{4}\D/g)
+        const arr6 = result7.filter(el => parseInt(el) > 2021)
+        res13.innerText = `\nTask nr13.\n ${arr6}`
+
+        // Задача 14. Дано номер телефону.Перевірити, чи є цей телефон телефоном з України(починаєтсья на «+38»)
+        const str5 = '+380345678923'
+        if (str5.startsWith('+38')) res14.innerText = `\nTask nr14.\n 'Это тел. номер украинский'`
+        else res14.innerText = `\nTask nr14.\n 'Это тел. номер не украинский'`
+
+        // Задача 15. Користувач вводить прізвище та ім’я в одному рядку через пробіл.Замінити пробіл на дефіс.
+        let userName = prompt('Введите имя и фамилию через пробел (пример: John Johnson')
+        userName = userName.replace(' ', '-')
+        res15.innerText = `\nTask nr15.\n ${userName}`
+
+        // Задача 16. Користувач вводить дату у форматі «день.місяць.рік». Отримати рядкове представлення дати у форматі «день / місяць / рік»
+        let userDate = prompt('Введите дату (пример: 10.04.2023)')
+        userDate = userDate.replaceAll('.', '/')
+        res16.innerText = `\nTask nr16.\n ${userDate}`
+
+        // Задача 17. Користувач вводить день(номер дня(0 - 6) або «sun, mon, tue, wed, thu, fri, sat»).Визначити, чи  є це день вихідним
+        function isWeekendDay(date) {
+            if (date === 0 || date === 6 || date === 'sun' || date === 'sat') res17.innerText = `\nTask nr17.\n 'Выходной день'`
+            else res17.innerText = `\nTask nr17.\n 'Не выходной день'`
+        }
+        const currentDay = new Date()
+        isWeekendDay(currentDay.getDay())
+        
+    </script>
+</body>
+
+</html>
