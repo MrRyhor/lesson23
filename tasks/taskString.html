@@ -62,7 +62,7 @@
         res6.innerText = `\nTask nr6.\n ${result}`
 
         // Задача 7. Дано рядок тексту.Знайти усі знаки пунктуації, які були використано.
-        const result2 = str.match(/[^\w\s]/g)
+        const result2 = str.match(/[^\w\s]/g).join(' ')
         res7.innerText = `\nTask nr7.\n ${result2}`
 
         // Задача 8. Дано рядок тексту.Вивести усі складові, які розділені розділовими знаками.
@@ -83,7 +83,7 @@
 
         // Задача 11. Визначити чи може бути рядок тексту номером банківської картки(приклад: «4142 - 3433 - 2323 - 3434»).Знайти усі такі номери.
         const str3 = 'While testing, use only this credit card numbers 4142-3433-2323-3434. Other numbers such this 4142-3433-1313-6666 produce an error.'
-        const result6 = str3.match(/\D\d{4}-\d{4}-\d{4}-\d{4}\D/g)
+        const result6 = str3.match(/\b\d{4}-\d{4}-\d{4}-\d{4}\b/g)
         res11.innerText = `\nTask nr11.\n ${result6}`
 
         // Задача 12. Дано адресу сайту.Визначити, чи є він урядовим(містить домен “gov”)
